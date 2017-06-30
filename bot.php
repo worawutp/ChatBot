@@ -1,10 +1,70 @@
 <?php
+$access_token = 'ycsRyUP3IrJCgcbST29BS8a/tVy8M1r9+OS/ABuVM7C/OBSr7Xu7UeZ4Th+4sQrY1MvE+KWCtaCOe5AKSqkmm1tMfStK+enOTj1Q+xL4KkUMLGWRwQoGm85pc+uDWG2CzJFmxJegeHugpcLE89ypKAdB04t89/1O/w1cDnyilFU=';
 
+// Get POST body content
+$content = file_get_contents('php://input');
+// Parse JSON
+$events = json_decode($content, true);
+// Validate parsed JSON data
+if (!is_null($events['events'])) {
+	// Loop through each event
+	foreach ($events['events'] as $event) {
+		// Reply only when message sent is in 'text' format
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+			// Get text sent
+			$text = $event['message']['text'];
+			// Get replyToken
+			$replyToken = $event['replyToken'];
 
-$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('ycsRyUP3IrJCgcbST29BS8a/tVy8M1r9+OS/ABuVM7C/OBSr7Xu7UeZ4Th+4sQrY1MvE+KWCtaCOe5AKSqkmm1tMfStK+enOTj1Q+xL4KkUMLGWRwQoGm85pc+uDWG2CzJFmxJegeHugpcLE89ypKAdB04t89/1O/w1cDnyilFU=');
-$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => 'b96d48f95b963b9d3c9a4f138a4c72f0']);
-$signature = $_SERVER['HTTP_' . \LINE\LINEBot\Constant\HTTPHeader::LINE_SIGNATURE];
-$events = $bot->parseEventRequest(file_get_contents('php://input'), $signature);
- foreach ($events as $event) {
-$bot->replyMessage($event->getReplyToken(), 'text');
- }
+			// Build message to reply back
+			if ( $text == 'เริ่ม' )
+			{
+				$messages = [
+					'type' => 'text',
+					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'
+				];
+			}else if ( $text > 55 )
+			{
+				$messages = [
+					'type' => 'text',
+					'text' => 'มันน้อยกว่านี้นะ'
+				];
+			}else if ( $text < 55 )
+			{
+				$messages = [
+					'type' => 'text',
+					'text' => 'มันมากกว่านี้นะ'
+				];
+			}
+			else if ( $text = 55 )
+			{
+				$messages = [
+					'type' => 'sticker',
+					'packageId' => '1',
+					'stickerId' => '1'
+				];
+			}
+			
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
+
+			echo $result . "\r\n";
+		}
+	}
+}
+echo "OK";
