@@ -41,9 +41,9 @@ if (!is_null($events['events'])) {
 				$messages = [
 					{'type' => 'text',
 					'text' => 'ยอดเลย'},
-					{"type" => "sticker",
-    "packageId" => "1",
-    "stickerId" => "1"}
+					{'type' => 'sticker',
+					 'packageId' => '1',
+					 'stickerId' => '1'}
 				];
 			}
 			
