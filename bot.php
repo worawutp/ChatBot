@@ -17,11 +17,20 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
-
+			if ( $text > 55 )
+			{
+				$messages = [
+					'type' => 'text',
+					'text' => $text
+				];
+			}else
+			{
+				$messages = [
+					'type' => 'text',
+						'text' => 'สวัสดี'
+				];
+			}
+			
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
