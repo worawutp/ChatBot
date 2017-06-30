@@ -39,14 +39,9 @@ if (!is_null($events['events'])) {
 			else if ( $text = 55 )
 			{
 				$messages = [
-					'type' => 'text',
-					'text' => 'ยอดเลย'
-				];
-			}else if ( $text = 66 )
-			{
-				$messages = [
-					'type' => 'text',
-					'text' => 'ยอดเลย2'
+					'type' => 'sticker',
+					'packageId' => 'ยอดเลย',
+					'stickerId' => '1'
 				];
 			}
 			
