@@ -23,8 +23,7 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'
 				];
-			}
-			if ( $text > 55 )
+			}else if ( $text > 55 )
 			{
 				$messages = [
 					'type' => 'text',
