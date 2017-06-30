@@ -17,17 +17,31 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
+			if ( $text = 'เริ่ม' )
+			{
+				$messages = [
+					'type' => 'text',
+					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'
+				];
+			}
 			if ( $text > 55 )
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => $text
+					'text' => 'มันน้อยกว่านี้นะ'
 				];
-			}else
+			}else if ( $text < 55 )
 			{
 				$messages = [
 					'type' => 'text',
-						'text' => 'สวัสดี'
+					'text' => 'มันมากกว่านี้นะ'
+				];
+			}
+			else if ( $text = 55 )
+			{
+				$messages = [
+					'type' => 'text',
+					'text' => 'ยอดเลย'
 				];
 			}
 			
