@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'วันนี้ '.$displayname.' จะ'.$predict[$user%3]
+					'text' => 'วันนี้ '.$displayname.' จะ'.$predict[$user%3].' '.$user
 				];
 			}else
 			if ( $text == 'สวัสดี' )
