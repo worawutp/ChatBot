@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
 			$result2 = json_decode($result, true);
 			curl_close($ch);
 			$displayname = $result2['displayName'];
-			$predict = ['aa','bb','cc'];
+			$predict = ['โชคดี','โชคร้าย','แย่ล้าว'];
 
 			
 			// Build message to reply back
@@ -38,7 +38,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'สวัสดี '.$displayname.' '.$predict[$user%3]
+					'text' => 'วันนี้ '.$displayname.' จะ'.$predict[$user%3]
 				];
 			}else
 			if ( $text == 'สวัสดี' )
