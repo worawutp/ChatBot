@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
 			$result2 = json_decode($result, true);
 			curl_close($ch);
 			$displayname = $result2['displayName'];
-			$predict = ['aa','bb','cc']
+			$predict = ['aa','bb','cc'];
 
 			
 			// Build message to reply back
