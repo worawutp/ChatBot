@@ -53,26 +53,35 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'.$displayname
 				];
-			}else if ( $text > 55 )
+			}else if(ctype_digit(strval($text)))
+			{
+				if( $text > 55 )
+				{
+					$messages = [
+						'type' => 'text',
+						'text' => 'มันน้อยกว่านี้นะ'
+					];
+				}else if ( $text < 55 )
+				{
+					$messages = [
+						'type' => 'text',
+						'text' => 'มันมากกว่านี้นะ'
+					];
+				}
+				else if ( $text = 55 )
+				{
+					$messages = [
+						'type' => 'text',
+						'text' => 'ถูกละ'
+					];
+				}
+			}else
 			{
 				$messages = [
-					'type' => 'text',
-					'text' => 'มันน้อยกว่านี้นะ'
-				];
-			}else if ( $text < 55 )
-			{
-				$messages = [
-					'type' => 'text',
-					'text' => 'มันมากกว่านี้นะ'
-				];
-			}
-			else if ( $text = 55 )
-			{
-				$messages = [
-					'type' => 'sticker',
-					'packageId' => '1',
-					'stickerId' => '1'
-				];
+						'type' => 'sticker',
+						'packageId' => '1',
+						'stickerId' => '1'
+					];
 			}
 			
 			// Make a POST Request to Messaging API to reply to sender
