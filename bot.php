@@ -31,6 +31,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 			$displayname = $result2['displayName'];
 			$predict = ['โชคดี','โชคร้าย','แย่ล้าว'];
+			$lastdigit = substr($user, -1);
 
 			
 			// Build message to reply back
@@ -38,7 +39,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'วันนี้ '.$displayname.' จะ'.$predict[$user%3].' '.$user
+					'text' => 'วันนี้ '.$displayname.' จะ'.$predict[$lastdigit%3].' '.$lastdigit
 				];
 			}else
 			if ( $text == 'สวัสดี' )
