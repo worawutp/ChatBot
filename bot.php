@@ -39,7 +39,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'วันนี้ '.$displayname.' จะ'.$predict[$lastdigit%3].' '.$lastdigit
+					'text' => 'วันนี้ '.$displayname.' จะ'.$predict[$lastdigit%3]
 				];
 			}else
 			if ( $text == 'สวัสดี' )
