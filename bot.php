@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			$result2 = json_decode($result, true);
 			curl_close($ch);
-			$displayname = $result2['displayName']
+			$displayname = $result2['displayName'];
 
 			
 			// Build message to reply back
