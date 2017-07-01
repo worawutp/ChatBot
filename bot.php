@@ -15,13 +15,28 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+			
+			// Make a POST Request to Messaging API to reply to sender
+			$user = $event['source']['userId'];
+			$url = 'https://api.line.me/v2/bot/profile/'.$user;
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			$result2 = json_decode($result, true);
+			curl_close($ch);
+
+			
 			// Build message to reply back
 			if ( $text == 'เริ่ม' )
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'
+					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'.$result2['displayName']
 				];
 			}else if ( $text > 55 )
 			{
