@@ -37,10 +37,9 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'สวัสดี '.$displayname.' เป็นไง?'
+					'text' => 'สวัสดี '.$displayname
 				];
-			}else
-			if ( $text == 'เริ่ม' )
+			}else if ( $text == 'เริ่ม' )
 			{
 				$messages = [
 					'type' => 'text',
