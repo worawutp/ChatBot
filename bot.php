@@ -29,14 +29,22 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			$result2 = json_decode($result, true);
 			curl_close($ch);
+			$displayname = $result2['displayName']
 
 			
 			// Build message to reply back
+			if ( $text == 'สวัสดี' )
+			{
+				$messages = [
+					'type' => 'text',
+					'text' => 'สวัสดี '.$displayname.' เป็นไง?'
+				];
+			}else
 			if ( $text == 'เริ่ม' )
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'.$result2['displayName']
+					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'.$displayname
 				];
 			}else if ( $text > 55 )
 			{
