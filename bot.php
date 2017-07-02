@@ -55,7 +55,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'คืองี้นะเลือกเลขระหว่าง 0-99'.$displayname
+					'text' => 'Hello, world 􀂲'
 				];
 			}else if(ctype_digit(strval($text)))
 			{
