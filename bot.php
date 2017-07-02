@@ -33,10 +33,11 @@ if (!is_null($events['events'])) {
 			$day = ['วันนี้','พรุ่งนี้','มะรืนนี้','วันสอบ SM','วันสอบ Ecom','วันพรีเซ้น SM','วันพระ','วันเกิด','วันมาฆบูชา','วันวาเลนไทน์'];
 			$predict = ['โชคดี','โชคร้าย','แย่ล้าว','ตื่นสาย','นอนกรน','เที่ยวดึก','เจอเนื้อคู่','สะดุดขี้ฝุ่น','หิวข้าว','ไม่ได้นอน'];
 			$error = ['งงดิ','อย่าแกล้งเราสิ','ไม่เข้าใจอ่า','อย่าเยอะ','เรายังไม่ได้เรียนอะไรแบบนี้','ไม่ไหวล้าววว'];
+			$sticker = [3,17,101,118,129,420];
 			$lastdigit = substr($user, -1);
 			$lastdigit2 = substr($replyToken, -1);
-			$lastdigit = rand(0,5);
-			$lastdigit2 = rand(0,9);
+			$rand1 = rand(0,5);
+			$rand2 = rand(0,1);
 			
 
 			
@@ -86,14 +87,23 @@ if (!is_null($events['events'])) {
 				}
 			}else
 			{
+				if($rand2==0)
+				{
 				$messages = [
-					{'type' => 'sticker',
+					'type' => 'sticker',
 						'packageId' => '1',
-						'stickerId' => '1'},
-					{'type' => 'text',
-						'text' => $error[$lastdigit]}
+						'stickerId' => $sticker[$rand1]
+					
 					];
-				
+				}else
+					
+				{
+				$messages = [
+					
+					'type' => 'text',
+						'text' => $error[$rand1]
+					];
+				}
 		
 			}
 			
