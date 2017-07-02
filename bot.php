@@ -45,53 +45,56 @@ if (!is_null($events['events'])) {
 			if ( strpos($text, 'ทำนาย') == 'ทำนาย' and  ctype_digit(strval(substr($text,-5))) )
 			{
 				
-				$messages = [
+				$messages = [[
 					'type' => 'text',
 					'text' => $day[substr($text,-5)%10].$displayname.' จะ'.$predict[substr($text,-5,4)%10]
-				];
+				]];
 				
 			}else
 			if ( strpos($text, 'สวัสดี') == 'สวัสดี' )
 			{
-				$messages = [
+				$messages = [[
 					'type' => 'text',
 					'text' => 'สวัสดี '.$displayname
-				];
+				]];
 			}else if ( $text == 'เริ่ม' )
 			{
-				$messages = [
+				$messages = [[
 					'type' => 'text',
 					'text' => 'Hello, world 􀂲'
-				];
+				]];
 			}else if(ctype_digit(strval($text)))
 			{
 				if( $text > 55 )
 				{
-					$messages = [
+					$messages = [[
 						'type' => 'text',
 						'text' => 'มันน้อยกว่านี้นะ'
-					];
+					]];
 				}else if ( $text < 55 )
 				{
-					$messages = [
+					$messages = [[
 						'type' => 'text',
 						'text' => 'มันมากกว่านี้นะ'
-					];
+					]];
 				}
 				else if ( $text = 55 )
 				{
-					$messages = [
+					$messages = [[
 						'type' => 'text',
 						'text' => 'ถูกละ'
-					];
+					]];
 				}
 			}else if(strpos($text,'หิว') == 'หิว')
 			{
-				$messages =[
+				$messages =[[
 				    'type' => 'image',
 				    'originalContentUrl' => 'https://lh3.googleusercontent.com/qqqCQN_bmH0MXXeyLB9mVNsy4H4PcBEu23FK8mXmUrdE9IbjtvGthLql_EDiBa-OhqHnhZJggOlJww-MjvSFXMX4ky8bMvKdYS0mfHCU6XdwJ0K_jaR4y4366ZXOhDHc9XQC2blu3ZE9lYZY40HwICvMERQ_I4CLE1Yif-qEFG66sD-HHoTB5Gm_w3PlL0DktR4ymoHX_z6bs99ifmQl7ZnjJ2XGdCANuZZsSjCigqZOUYkdMVztCYvQpqu3BdKiaikVaEmTgHVWv4extdDCfBI2kTw06k57-W4KvIBP24ngr18jSTO_cWotp5xr3__J9gNWf_zmTyUPOnrEUKVWeDtiIyAhnwxo5Gi_tlAJ79-Q62rxIGqhYUauZ3RpJfwL6xi7YmeNMD7DH2jfRPIJ3RU7LVvRJaEsfapK1aLvPpWpZ2dSwaucPpvftfHbSGJsQk4Gchu5M5E3ciOSvKp_o6yBKSZaZhjYHkKkfWUWOQ5zoN0XUvnVsgDQt699E-hL658LEaMwJ6iQTy7gFhjt5jSekIj3FphALLQuKVsp3Ca1K3jYF8jp1al1KhhiWOohEKoyd18DJ_RpxmoKFhgJdHrY8Vq-sNrhuv-HsF5ttI54PuCaVmIG=w861-h638-no',
 				    'previewImageUrl' => 'https://lh3.googleusercontent.com/EcYGJGoXQBZ5Avd3ahY11fNIcVcLMPOEgvIUEvoxabWB3ekSdaUfOZ3i2rPvdkfuv38-diLT7GFrPCkB1edvbJ5YnOEMugix4xA5n8_fHIi6VZ7uaavhpWHQfJjaXTkfRLM-JqwKN-jR6CH5kKyStPxqcGD9PofJ4rsRal1bgUHVXZbTvRaUYKaKwluATW0GUAuB7SWMrvnHi2Uri81eHPjSz3P_d_jjJmwJTYOqyR1DYyoJ0Ax9cxdblZrd9NR0V8PP4iQi6sMDaMHICdkH0GeO5hdEomo_AJy5XJ0CMUGvw29v9ZlFh0yhH0qfcNRFUQagmIFMIPE8CBLCY090o6MlyQVaxKzSOUbmHGUX6Eo7zO6UrVzxLEnB-5cnwoPWtGuK5WljTEpelSYleyO_1GPuIu4QY1FfDL4zVk4QU6wV9cdLFVY_filXDRvKOpP4bsup9KJwzKVCieF-gwPCSiTypySN5NcyF32a9RRAcmCzBLHuWmP6mPNDLjyfelWYuhriXZuE9cekWS78CEyrvy4cVEZ-HHsRXxE99ZG-RXeIKih6k4kIvlg-U_YwLYTpJJ9jYhisAA2QXMzSSWNCHtL00DE8mr4dZeKhH01a1lfNqL4a=w240-h177-no']
-				];
+				],[
+					'type' => 'text',
+						'text' => 'สั่งซื้อได้หลังห้องนะครัชอิอิ'
+					]];
 			}else
 			{
 				if($rand2==0)
