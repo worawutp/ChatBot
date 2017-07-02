@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => $day[$lastdigit2%10].$displayname.' จะ'.$predict[$lastdigit%10]
+					'text' => $day[$lastdigit2%10].$displayname.' จะ'.$predict[$lastdigit2%10]
 				];
 			}else
 			if ( strpos($text, 'สวัสดี') == 'สวัสดี' )
