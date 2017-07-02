@@ -32,6 +32,9 @@ if (!is_null($events['events'])) {
 			$displayname = $result2['displayName'];
 			$predict = ['โชคดี','โชคร้าย','แย่ล้าว'];
 			$lastdigit = substr($user, -1);
+			$code = '100005';
+			$bin = hex2bin(str_repeat('0', 8 - strlen($code)) . $code);
+			$emoticon =  mb_convert_encoding($bin, 'UTF-8', 'UTF-32BE');
 
 			
 			// Build message to reply back
@@ -46,7 +49,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => 'สวัสดี '.$displayname
+					'text' => 'สวัสดี '.$displayname.$emoticon
 				];
 			}else if ( $text == 'เริ่ม' )
 			{
