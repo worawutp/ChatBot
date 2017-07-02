@@ -44,7 +44,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => $day[substr($text,-5)%10].$displayname.' จะ'.$predict[substr(substr($text,-5),4)%10]
+					'text' => $day[substr($text,-5)%10].$displayname.' จะ'.$predict[substr($text,-5,4)%10]
 				];
 			}else
 			if ( strpos($text, 'สวัสดี') == 'สวัสดี' )
