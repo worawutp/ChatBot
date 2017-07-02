@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
 			$result2 = json_decode($result, true);
 			curl_close($ch);
 			$displayname = $result2['displayName'];
-			$day = ['วันนี้','พรุ่งนี้','มะรืนนี้','วันสอบ SM','วันสอบ Ecom','วันพรีเซ้น SM','วันพระ','วันเกิด','วันมาฆบูชา'];
+			$day = ['วันนี้','พรุ่งนี้','มะรืนนี้','วันสอบ SM','วันสอบ Ecom','วันพรีเซ้น SM','วันพระ','วันเกิด','วันมาฆบูชา','วันวาเลนไทน์'];
 			$predict = ['โชคดี','โชคร้าย','แย่ล้าว','ตื่นสาย','นอนกรน','เที่ยวดึก','เจอเนื้อคู่','สะดุดขี้ฝุ่น','หิวข้าว','ไม่ได้นอน'];
 			$lastdigit = substr($user, -1);
 			$lastdigit2 = substr($replyToken, -1);
@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => $day[$lastdigit2%10].$displayname.' จะ'.$predict[$lastdigit2%10]
+					'text' => $day[$lastdigit2%10].$displayname.' จะ'.$predict[$lastdigit%10]
 				];
 			}else
 			if ( strpos($text, 'สวัสดี') == 'สวัสดี' )
