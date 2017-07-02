@@ -40,12 +40,14 @@ if (!is_null($events['events'])) {
 
 			
 			// Build message to reply back
-			if ( strpos($text, 'ทำนาย') == 'ทำนาย')
+			if ( strpos($text, 'ทำนาย') == 'ทำนาย' and  ctype_digit(strval(substr($text,-5))) )
 			{
+				
 				$messages = [
 					'type' => 'text',
 					'text' => $day[substr($text,-5)%10].$displayname.' จะ'.$predict[substr($text,-5,4)%10]
 				];
+				
 			}else
 			if ( strpos($text, 'สวัสดี') == 'สวัสดี' )
 			{
