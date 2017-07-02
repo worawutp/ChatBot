@@ -40,7 +40,7 @@ if (!is_null($events['events'])) {
 
 			
 			// Build message to reply back
-			if ( substr($text, 5) == 'ทำนาย' && ctype_digit(strval(substr($text,-5))) )
+			if ( strpos($text, 'ทำนาย') == 'ทำนาย')
 			{
 				$messages = [
 					'type' => 'text',
