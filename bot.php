@@ -34,15 +34,17 @@ if (!is_null($events['events'])) {
 			$predict = ['โชคดี','โชคร้าย','แย่ล้าว','ตื่นสาย','นอนกรน','เที่ยวดึก','เจอเนื้อคู่','สะดุดขี้ฝุ่น','หิวข้าว','ไม่ได้นอน'];
 			$lastdigit = substr($user, -1);
 			$lastdigit2 = substr($replyToken, -1);
+			$lastdigit = rand(0,9);
+			$lastdigit2 = rand(0,9);
 			
 
 			
 			// Build message to reply back
-			if ( $text == 'ทำนาย' )
+			if ( strpos($text, 'ทำนาย') > 0 && ctype_digit(strval(substr($text,-5))))
 			{
 				$messages = [
 					'type' => 'text',
-					'text' => $day[$lastdigit2%10].$displayname.' จะ'.$predict[$lastdigit%10]
+					'text' => $day[substr($text,-5)%10].$displayname.' จะ'.$predict[substr(substr($text,-5),4)%10]
 				];
 			}else
 			if ( strpos($text, 'สวัสดี') == 'สวัสดี' )
