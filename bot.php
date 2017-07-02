@@ -32,9 +32,10 @@ if (!is_null($events['events'])) {
 			$displayname = $result2['displayName'];
 			$day = ['วันนี้','พรุ่งนี้','มะรืนนี้','วันสอบ SM','วันสอบ Ecom','วันพรีเซ้น SM','วันพระ','วันเกิด','วันมาฆบูชา','วันวาเลนไทน์'];
 			$predict = ['โชคดี','โชคร้าย','แย่ล้าว','ตื่นสาย','นอนกรน','เที่ยวดึก','เจอเนื้อคู่','สะดุดขี้ฝุ่น','หิวข้าว','ไม่ได้นอน'];
+			$error = ['งงดิ','อย่าแกล้งเราสิ','ไม่เข้าใจอ่า','อย่าเยอะ','เรายังไม่ได้เรียนอะไรแบบนี้','ไม่ไหวล้าววว'];
 			$lastdigit = substr($user, -1);
 			$lastdigit2 = substr($replyToken, -1);
-			$lastdigit = rand(0,9);
+			$lastdigit = rand(0,5);
 			$lastdigit2 = rand(0,9);
 			
 
@@ -86,10 +87,14 @@ if (!is_null($events['events'])) {
 			}else
 			{
 				$messages = [
-						'type' => 'sticker',
+					{'type' => 'sticker',
 						'packageId' => '1',
-						'stickerId' => '1'
+						'stickerId' => '1'},
+					{'type' => 'text',
+						'text' => $error[$lastdigit]}
 					];
+				
+		
 			}
 			
 			// Make a POST Request to Messaging API to reply to sender
