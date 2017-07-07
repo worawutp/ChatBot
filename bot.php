@@ -30,7 +30,7 @@ if (!is_null($events['events'])) {
 			$displayname = $result2['displayName'];
 			$day = ['วันนี้','พรุ่งนี้','มะรืนนี้','วันสอบ SM','วันสอบ Ecom','วันพรีเซ้น SM','วันพระ','วันเกิด','วันมาฆบูชา','วันวาเลนไทน์'];
 			$predict = ['โชคดี','โชคร้าย','แย่ล้าว','ตื่นสาย','นอนกรน','เที่ยวดึก','เจอเนื้อคู่','สะดุดขี้ฝุ่น','หิวข้าว','ไม่ได้นอน'];
-			$error = ['งงดิ','อย่าแกล้งเราสิ','ไม่เข้าใจอ่า','อย่าเยอะ','เรายังไม่ได้เรียนอะไรแบบนี้','ไม่ไหวล้าววว'];
+			$error = ['งงเด้','อย่าแกล้งเราสิ','ไม่เข้าใจอ่า','อย่าเยอะ','เรายังไม่ได้เรียนอะไรแบบนี้','ไม่ไหวล้าววว'];
 			$SM = ['อย่าไปพูดถึงมันเลย','เฮ้ออออ','#%!@#%$&&*@#$','เพลียยยย','...','ยอมล้าววววว'];
 			$sticker = [3,17,101,118,129,420];
 			$lastdigit = substr($user, -1);
@@ -55,7 +55,7 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => 'สวัสดี '.$displayname
 				];
-			}else if ( $text == 'เริ่ม' )
+			}/*else if ( $text == 'เริ่ม' )
 			{
 				$messages = [
 					'type' => 'text',
@@ -83,12 +83,12 @@ if (!is_null($events['events'])) {
 						'text' => 'ถูกละ'
 					];
 				}
-			}else if(strpos($text,'หิว') == 'หิว')
+			}*/else if(strpos($text,'หิว') == 'หิว')
 			{
 				$messages =[
 				    'type' => 'image',
-				    'originalContentUrl' => 'https://lh6.googleusercontent.com/fP8rJ5N_vuG-iS4TCPfVvqrepgH1nNtHHLknxXqDpIbBGczHE5hbsybC-CIqQ1WJ7V23nPyqu4V7rWGSE_SPSw=w1366-h638-rw',
-				    'previewImageUrl' => 'https://lh6.googleusercontent.com/AasH0YW4stSv41_9Th_0U4LCGAMicNcC5EKnhHhgD2GuifT8cUYNIXn0c29AawJe7oNebY38tME8r-A-m1VNrA=w1366-h638'
+				    'originalContentUrl' => 'https://lh3.googleusercontent.com/P77I9PmIwJ87txY4eEHJ3bsfUp1PNnHlf_CejthtTwNCMiJbOGceRinPgJyNkNZMy3Hv4FfSJyac6Bn_X9Q4jQ=w1366-h638-rw',
+				    'previewImageUrl' => 'https://lh3.googleusercontent.com/ZGTK337W_Wphna72wrWdHGa9UGz0jA5ely7XBPpIwkcEtE1L8WNUNO0kmGWos0f-N9u3bOkLJoqu7I7MDURBng=w1366-h638'
 				];
 			}else if(strpos($text,'SM') == 'SM' or strpos($text,'sm') == 'sm')
 			{
