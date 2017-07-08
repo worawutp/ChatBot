@@ -93,17 +93,14 @@ if (!is_null($events['events'])) {
 				$messages = [
 					
 					'type' => 'text',
-					'text' => '	🦀ปูอัดทอดกรอบ🦀
+					'text' => '🦀ปูอัดทอดกรอบ🦀
 							🦀4 รส 4 Style🦀
 							🔸Classic
 							🔸Tomyum
 							🔸Sriracha
 							🔸Wasabi
 
-							 กระป๋องละ 150 บาท
-							10 กระป๋องขึ้นไป 140 บาท
-							📍นัดรับแถวแจ้งวัฒนะ / สีลม
-							โทร: 081-148-3283
+							กระป๋องละ 150 บาท
 							Line id: mickey_bunny'
 					];
 			}else if(strpos($text,'SM') == 'SM' or strpos($text,'sm') == 'sm')
