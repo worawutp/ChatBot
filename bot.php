@@ -85,11 +85,27 @@ if (!is_null($events['events'])) {
 				}
 			}*/else if(strpos($text,'หิว') == 'หิว')
 			{
-				$messages =[
+				/*$messages =[
 				    'type' => 'image',
 				    'originalContentUrl' => 'https://lh5.googleusercontent.com/NqGNLY9toW31Rqmx6ZrWlUk1fU26TS71JD0yQ2gFDZFC66RBmF3GEX55YL-MN1nhndaJj9pwV2iWgeC7Y8cJAw=w1366-h638-rw',
 				    'previewImageUrl' => 'https://lh5.googleusercontent.com/34m4n0ksq59kfpWC42Lu81eyPBfrFDD0X2yuPfQZRQdK0R-FzuEG7EaIM-fpxgNBY9Oic0iy9gACN8yUXFwKFw=w1366-h638'
-				];
+				];*/
+				$messages = [
+					
+					'type' => 'text',
+					'text' => '	🦀ปูอัดทอดกรอบ🦀
+							🦀4 รส 4 Style🦀
+							🔸Classic
+							🔸Tomyum
+							🔸Sriracha
+							🔸Wasabi
+
+							 กระป๋องละ 150 บาท
+							10 กระป๋องขึ้นไป 140 บาท
+							📍นัดรับแถวแจ้งวัฒนะ / สีลม
+							โทร: 081-148-3283
+							Line id: mickey_bunny'
+					];
 			}else if(strpos($text,'SM') == 'SM' or strpos($text,'sm') == 'sm')
 			{
 				$messages = [
